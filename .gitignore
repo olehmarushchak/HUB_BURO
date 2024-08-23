@@ -1,6 +1,8 @@
 # IDE
 .idea
 .vscode
+.env
+./backend/web-public
 
 # Node
 node_modules
