@@ -1,7 +1,7 @@
 const { Clients } = require("../models/clients.model");
 
-const create = (name, email, phone, comments) => {
-  return Clients.create({ name, email, phone, comments });
+const create = async (name, email, phone, comments) => {
+  return await Clients.create({ name, email, phone, comments });
 };
 
 const clientsServices = {

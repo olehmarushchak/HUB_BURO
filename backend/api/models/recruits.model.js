@@ -1,8 +1,8 @@
 const { DataTypes } = require("sequelize");
 const { sequelize } = require("../utils/db");
 
-const Clients = sequelize.define(
-  "Clients",
+const Recruits = sequelize.define(
+  "Recruits",
   {
     id: {
       type: DataTypes.UUID,
@@ -24,14 +24,17 @@ const Clients = sequelize.define(
     comments: {
       type: DataTypes.STRING,
       allowNull: false,
-      defaultValue: "without comments",
+    },
+    cvlink: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
   },
   {
-    tableName: "clients",
+    tableName: "recruits",
   }
 );
 
 module.exports = {
-  Clients,
+  Recruits,
 };

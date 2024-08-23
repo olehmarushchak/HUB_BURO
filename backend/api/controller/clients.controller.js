@@ -1,4 +1,5 @@
 const { clientsServices } = require("../services/clients.service");
+const { mailer } = require("../utils/mailer");
 
 const createClients = async (req, res) => {
   const { name, email, phone, comments } = req.body;
@@ -8,6 +9,8 @@ const createClients = async (req, res) => {
   }
 
   const newClients = await clientsServices.create(name, email, phone, comments);
+
+  mailer.sendInfoForCompany(newClients);
 
   return res.send(newClients);
 };

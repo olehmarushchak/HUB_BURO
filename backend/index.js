@@ -8,6 +8,7 @@ const {
 } = require("./api/createDataPg/fillingTableProjects");
 const { fetchAPIurl } = require("./api/utils/fetchAPI.img");
 const { clientsRouter } = require("./api/routes/clients.route");
+const { recruitsRouter } = require("./api/routes/recruits.route");
 
 dotenv.config();
 
@@ -26,6 +27,7 @@ app.use(express.json());
 // Endpoint path
 app.use("/projects", projectRouter);
 app.use("/clients", clientsRouter);
+app.use("/recruits", recruitsRouter);
 
 // Init Table with .sync and fill
 allModels
