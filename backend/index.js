@@ -33,12 +33,13 @@ app.use("/recruits", recruitsRouter);
 allModels
   .initTables()
   .then(async () => {
-    // fillingTableProjects("backend/web-public/architecture", "architecture");
+    // ***Turn on if you wanna fill a table projects***
+    // fillingTableProjects("backend/public/architecture", "architecture");
     // fillingTableProjects(
-    //   "backend/web-public/interior-design",
+    //   "backend/public/interior-design",
     //   "interior-design"
     // );
-    // fillingTableProjects("backend/web-public/landscape", "landscape");
+    // fillingTableProjects("backend/public/landscape", "landscape");
   })
   .catch((error) => {
     console.log(error);

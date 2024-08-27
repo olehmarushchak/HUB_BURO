@@ -1,0 +1,177 @@
+@import "../../../src/styles/utils.scss";
+
+.HomePage {
+  position: relative;
+  overflow: hidden;
+
+  &__top {
+    overflow: hidden;
+    position: relative;
+    height: $heigth-home-page-top;
+    display: flex;
+    margin-bottom: $margin-bottom-home-page-top-desktop;
+
+    &__bottom {
+      align-items: center;
+      position: absolute;
+      bottom: 0;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      padding: 0 80px 100px;
+    }
+
+    &__img {
+      height: 100%;
+      width: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      animation: scale-and-rotate 35s infinite linear;
+    }
+
+    @keyframes scale-and-rotate {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    &__text {
+      top: 0;
+      color: $background-color;
+      font-size: 32px;
+      text-align: left;
+    }
+
+    &__button {
+      text-transform: uppercase;
+      height: 44px;
+      width: 144px;
+      outline: 0;
+      color: #fff;
+      background-color: rgba($color: #fff, $alpha: 0.3);
+      border: solid 1px $background-color;
+
+      @include hover(background-color, $background-color);
+      @include hover(color, $black-color);
+    }
+  }
+
+  &__categorys__center {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__categorys {
+    position: relative;
+    width: 75%;
+
+    &__title {
+      &__h2 {
+        text-transform: uppercase;
+        margin-bottom: $margin-bottom-home-page-categorys-title-desktop;
+      }
+    }
+
+    &__category {
+      display: flex;
+      justify-content: left;
+      margin-bottom: $margin-bottom-home-page-categorys-category-desktop;
+
+      &__list {
+        display: flex;
+        list-style: none;
+        text-transform: uppercase;
+
+        & :not(:last-child) {
+          margin-right: 52px;
+        }
+
+        &__item {
+          width: fit-content;
+        }
+
+        &__link {
+          @include hoverLinks();
+        }
+      }
+    }
+
+    &__title {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__projects-list {
+      display: flex;
+      list-style: none;
+      overflow: hidden;
+
+      &__button {
+        position: absolute;
+        background: url(../../../public/icons/ant-design_left-outlined.svg);
+        background-size: cover;
+        width: 50px;
+        height: 50px;
+        outline: 0;
+        border: none;
+        bottom: 30%;
+
+        &--left {
+          left: -75px;
+        }
+
+        &--right {
+          transform: rotate(180deg);
+          right: -75px;
+        }
+      }
+
+      &__project {
+        margin-right: 35px;
+      }
+
+      &__img {
+        width: $width-project-img-desktop;
+        height: $heigth-project-img-desktop;
+        margin-bottom: 16px;
+      }
+    }
+  }
+}
+
+.slides {
+  display: flex;
+
+  & :not(:last-child) {
+    margin-right: 5px;
+  }
+
+  &__center {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    padding-bottom: 40px;
+  }
+
+  &__button {
+    width: 20px;
+    height: 5px;
+    background-color: rgba($color: #fff, $alpha: 0.5);
+    border: none;
+
+    @include hover(background-color, #fff);
+
+    &--active {
+      background-color: $background-color;
+    }
+  }
+}
