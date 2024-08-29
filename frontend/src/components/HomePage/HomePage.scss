@@ -9,7 +9,17 @@
     position: relative;
     height: $heigth-home-page-top;
     display: flex;
-    margin-bottom: $margin-bottom-home-page-top-desktop;
+    margin-bottom: $margin-bottom-home-page-desktop;
+
+    &__title {
+      @include h1;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    &__sub-title {
+      @include h1;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
 
     &__bottom {
       align-items: center;
@@ -50,6 +60,7 @@
     }
 
     &__button {
+      cursor: pointer;
       text-transform: uppercase;
       height: 44px;
       width: 144px;
@@ -57,6 +68,7 @@
       color: #fff;
       background-color: rgba($color: #fff, $alpha: 0.3);
       border: solid 1px $background-color;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 
       @include hover(background-color, $background-color);
       @include hover(color, $black-color);
@@ -66,16 +78,27 @@
   &__categorys__center {
     display: flex;
     justify-content: center;
+    position: relative;
   }
 
   &__categorys {
     position: relative;
-    width: 75%;
+    width: $width-page-desktop;
+    margin-bottom: $margin-bottom-home-page-desktop;
 
     &__title {
       &__h2 {
+        @include h2;
+      }
+
+      &__view-all {
+        cursor: pointer;
+        position: relative;
+        text-decoration: none;
+        color: $black-color;
         text-transform: uppercase;
-        margin-bottom: $margin-bottom-home-page-categorys-title-desktop;
+
+        @include hoverLinks();
       }
     }
 
@@ -94,11 +117,20 @@
         }
 
         &__item {
-          width: fit-content;
+          display: flex;
+          justify-content: left;
+          align-items: center;
+          width: 100px;
         }
 
         &__link {
+          position: relative;
+          cursor: pointer;
+          transition: all 0.3s;
+
           @include hoverLinks();
+
+          @include activeLink();
         }
       }
     }
@@ -111,37 +143,151 @@
     &__projects-list {
       display: flex;
       list-style: none;
-      overflow: hidden;
+      overflow-x: auto;
+
+      & ::-webkit-scrollbar {
+        display: none;
+      }
+
+      & :last-child {
+        margin: 0;
+      }
+
+      /* Скрыть горизонтальный скролл для IE, Edge и Firefox */
+      & {
+        -ms-overflow-style: none; /* IE и Edge */
+        scrollbar-width: none; /* Firefox */
+      }
 
       &__button {
+        cursor: pointer;
         position: absolute;
-        background: url(../../../public/icons/ant-design_left-outlined.svg);
         background-size: cover;
-        width: 50px;
-        height: 50px;
+        width: $size-button;
+        height: $size-button;
         outline: 0;
         border: none;
         bottom: 30%;
 
+        @include hover(transform, scale(1.2));
+
         &--left {
-          left: -75px;
+          background: url(../../../public/icons/ant-design_left-outlined.svg);
+          left: -$margin-button;
         }
 
         &--right {
-          transform: rotate(180deg);
-          right: -75px;
+          background: url(../../../public/icons/ant-design_right-outlined-right.svg);
+          right: -$margin-button;
         }
       }
 
       &__project {
-        margin-right: 35px;
+        margin-right: $margin-project-tale-desktop;
+        text-decoration: none;
+        color: $black-color;
+        position: relative;
+
+        &::after {
+          content: "view";
+          opacity: 0;
+          display: flex;
+          width: 100%;
+          height: $heigth-project-img-desktop;
+          background-color: rgba($black-color, 0.5);
+          position: absolute;
+          top: 0;
+          color: #fff;
+          justify-content: center;
+          align-items: center;
+          text-transform: uppercase;
+          font-size: 24px;
+          transition: opacity 0.3s;
+        }
+
+        &:hover {
+          &::after {
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            opacity: 1;
+          }
+        }
+      }
+
+      &__img__container {
+        width: $width-project-img-desktop;
+        height: $heigth-project-img-desktop;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
       &__img {
-        width: $width-project-img-desktop;
-        height: $heigth-project-img-desktop;
+        width: $width-project-img-desktop + 70px;
+        height: $heigth-project-img-desktop + 70px;
         margin-bottom: 16px;
       }
+
+      &__title {
+        @include h3;
+      }
+    }
+  }
+
+  &__about-us__center {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: $margin-bottom-home-page-desktop;
+  }
+
+  &__about-us {
+    border-bottom: solid 1px $gray-color;
+    border-top: solid 1px $gray-color;
+    padding: $margin-project-tale-desktop * 2;
+    width: $width-page-desktop;
+
+    &__text {
+      font-size: 30px;
+      text-align: left;
+      line-height: 45px;
+      color: $gray-color;
+    }
+  }
+
+  &__portfolio__center {
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+
+  &__portfolio {
+    width: $width-page-desktop;
+
+    .margin-bottom {
+      margin-bottom: 32px;
+    }
+
+    &__button__center {
+      display: flex;
+      justify-content: right;
+    }
+
+    &__button {
+      cursor: pointer;
+      margin-top: 60px;
+      margin-bottom: $margin-bottom-home-page-desktop;
+      width: 300px;
+      height: 55px;
+      background-color: $black-color;
+      color: #fff;
+      text-transform: uppercase;
+      position: relative;
+      right: 0;
+      outline: 0;
+      border: none;
+
+      @include hover(background-color, rgba($color: $black-color, $alpha: 0.5));
     }
   }
 }
@@ -163,6 +309,7 @@
   }
 
   &__button {
+    cursor: pointer;
     width: 20px;
     height: 5px;
     background-color: rgba($color: #fff, $alpha: 0.5);

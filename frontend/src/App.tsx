@@ -4,6 +4,7 @@ import { useAppDispatch } from "./custom-hooks/reduxHooks.ts";
 import { initProjects } from "./redux/slices/projects.slice.ts";
 import { Header } from "./components/Header/Header.tsx";
 import { Outlet } from "react-router-dom";
+import { Footer } from "./components/Footer/Footer.tsx";
 
 const App: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -16,9 +17,11 @@ const App: React.FC = () => {
     <div className="App">
       <Header />
 
-      <main>
+      <main className="reservedHeader">
         <Outlet />
       </main>
+
+      <Footer/>
     </div>
   );
 };

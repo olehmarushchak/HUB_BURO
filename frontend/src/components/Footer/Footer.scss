@@ -1,0 +1,79 @@
+@import "../../styles/utils.scss";
+
+.Footer {
+  display: flex;
+  padding: 30px 80px;
+  justify-content: space-between;
+  align-items: center;
+  height: $heigth-project-img-desktop;
+  background-color: rgba($color: $gray-color, $alpha: 0);
+
+  &__address {
+    position: relative;
+    text-decoration: none;
+    color: $black-color;
+
+    @include hoverLinks();
+  }
+
+  &__list {
+    display: flex;
+    list-style: none;
+
+    & :not(:last-child) {
+      margin-right: 60px;
+    }
+    
+    &__item {
+      display: flex;
+    }
+
+    &__link {
+      position: relative;
+      text-decoration: none;
+      color: $black-color;
+      text-transform: uppercase;
+
+      @include hoverLinks();
+
+      &--facebook {
+        &::before {
+          content: url(../../../public/icons/ri_facebook-fill.png);
+          position: absolute;
+          left: -30px;
+          bottom: -2px;
+          display: flex;
+          width: 25px;
+          height: 25px;
+          background-color: #fff;
+        }
+      }
+
+      &--instagram {
+        &::before {
+          content: url(../../../public/icons/ri_instagram-line.png);
+          position: absolute;
+          left: -30px;
+          bottom: -2px;
+          display: flex;
+          width: 25px;
+          height: 25px;
+          background-color: #fff;
+        }
+      }
+
+      &--linkedin {
+        &::before {
+          content: url(../../../public/icons/ri_linkedin-fill.png);
+          position: absolute;
+          left: -30px;
+          bottom: -2px;
+          display: flex;
+          width: 25px;
+          height: 25px;
+          background-color: #fff;
+        }
+      }
+    }
+  }
+}
