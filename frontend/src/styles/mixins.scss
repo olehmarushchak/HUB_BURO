@@ -40,12 +40,19 @@
   }
 }
 
+@mixin text {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+}
+
 @mixin h1 {
   font-weight: 500;
   font-size: 40px;
 }
 
 @mixin h2 {
+  color: $black-color;
   font-weight: 450;
   font-size: 38px;
   text-transform: uppercase;
@@ -53,7 +60,25 @@
 }
 
 @mixin h3 {
+  color: $black-color;
   font-weight: 350;
   font-size: 18px;
   text-transform: uppercase;
+}
+
+@mixin buttonContact {
+  cursor: pointer;
+  margin-top: 60px;
+  margin-bottom: $margin-bottom-home-page-desktop;
+  width: 300px;
+  height: 55px;
+  background-color: $black-color;
+  color: #fff;
+  text-transform: uppercase;
+  position: relative;
+  right: 0;
+  outline: 0;
+  border: none;
+
+  @include hover(background-color, rgba($color: $black-color, $alpha: 0.5));
 }

@@ -10,7 +10,6 @@ import {
   initProjects,
   selectProjects,
 } from "../../redux/slices/projects.slice.ts";
-import { PreloadStyleForTale } from "./PeloadStyleForTale/PreloadStyleForTale.tsx";
 import { SIZE__PROJECT__IMG } from "../../const.ts";
 import { Category } from "../../types/categorys.ts";
 import { RenderProjects } from "./RenderProjects/RenderProjects.tsx";

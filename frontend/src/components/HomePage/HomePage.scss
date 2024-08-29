@@ -230,6 +230,7 @@
 
       &__title {
         @include h3;
+        padding-top: 16px;
       }
     }
   }
@@ -274,20 +275,7 @@
     }
 
     &__button {
-      cursor: pointer;
-      margin-top: 60px;
-      margin-bottom: $margin-bottom-home-page-desktop;
-      width: 300px;
-      height: 55px;
-      background-color: $black-color;
-      color: #fff;
-      text-transform: uppercase;
-      position: relative;
-      right: 0;
-      outline: 0;
-      border: none;
-
-      @include hover(background-color, rgba($color: $black-color, $alpha: 0.5));
+      @include buttonContact;
     }
   }
 }
