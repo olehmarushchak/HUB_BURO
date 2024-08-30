@@ -38,6 +38,8 @@
       background-size: cover;
       background-position: center;
       animation: scale-and-rotate 35s infinite linear;
+      opacity: 1;
+      transition: opacity 0.6s ease-in-out;
     }
 
     @keyframes scale-and-rotate {

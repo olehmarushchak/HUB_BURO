@@ -61,6 +61,7 @@
 
   &__bottom {
     margin-top: $most-margin-about-us;
+    margin-bottom: $most-margin-about-us;
 
     &__team {
       & > *:not(:last-child) {
@@ -97,4 +98,29 @@
       }
     }
   }
+}
+
+@media (max-width: 600px) {
+  .AboutUs {
+    display: block;
+    width: fit-content;
+
+    &__top {
+      margin: 0;
+    }
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1180px) {
+  .AboutUs {
+    display: block;
+    width: fit-content;
+
+    &__top {
+      margin: 0;
+    }
+  }
+}
+
+@media (min-width: 1025px) {
 }

@@ -2,8 +2,22 @@ import React from "react";
 import "./AboutUs.scss";
 import { TEAM } from "../../const.ts";
 import { MemberOfTeam } from "./MemberOfTeam/MemberOfTeam.tsx";
+import { useAppDispatch } from "../../custom-hooks/reduxHooks.ts";
+import { setContactsForm } from "../../redux/slices/projects.slice.ts";
 
 export const AboutUs: React.FC = () => {
+  const dispatch = useAppDispatch();
+
+  const handleContactFormButton = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+    document.body.style.overflow = "hidden";
+
+    dispatch(setContactsForm(true));
+  };
+
   return (
     <div className="AboutUs__center">
       <section className="AboutUs">
@@ -54,11 +68,7 @@ export const AboutUs: React.FC = () => {
           </section>
 
           <section className="AboutUs__top__img__container">
-            <img
-              className="AboutUs__top__img"
-              src="../../../public/about-img.jpg"
-              alt=""
-            />
+            <img className="AboutUs__top__img" src="about-img.jpg" alt="" />
           </section>
 
           <section className="AboutUs__top__section">
@@ -74,7 +84,12 @@ export const AboutUs: React.FC = () => {
           </section>
 
           <div className="AboutUs__top__button__center">
-            <button className="AboutUs__top__button">conversation</button>
+            <button
+              onClick={() => handleContactFormButton()}
+              className="AboutUs__top__button"
+            >
+              conversation
+            </button>
           </div>
         </div>
 

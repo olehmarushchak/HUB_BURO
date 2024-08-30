@@ -82,3 +82,30 @@
 
   @include hover(background-color, rgba($color: $black-color, $alpha: 0.5));
 }
+
+@media (max-width: 600px) {
+  @mixin h3 {
+    color: $black-color;
+    font-weight: 350;
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1180px) {
+  @mixin h3 {
+    color: $black-color;
+    font-weight: 350;
+    font-size: 16px;
+    text-transform: uppercase;
+  }
+}
+
+@media (min-width: 1025px) {
+  @mixin h3 {
+    color: $black-color;
+    font-weight: 350;
+    font-size: 18px;
+    text-transform: uppercase;
+  }
+}

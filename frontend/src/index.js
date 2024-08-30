@@ -8,6 +8,7 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { HomePage } from "./components/HomePage/HomePage.tsx";
 import { Portfolio } from "./components/Portfolio/Portfolio.tsx";
 import { AboutUs } from "./components/AboutUs/AboutUs.tsx";
+import { Contacts } from "./components/Contacts/Contacts.tsx";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -21,7 +22,7 @@ root.render(
       
           <Route path="about-us" element={<AboutUs />} />
 
-          <Route path="contacts" element={<HomePage />} />
+          <Route path="contacts" element={<Contacts />} />
         </Route>
       </Routes>
     </Provider>

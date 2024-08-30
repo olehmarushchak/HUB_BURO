@@ -9,8 +9,9 @@ import {
 import {
   initProjects,
   selectProjects,
+  setContactsForm,
 } from "../../redux/slices/projects.slice.ts";
-import { SIZE__PROJECT__IMG } from "../../const.ts";
+import { SIZE__PROJECT__IMG, SLIDER__LENGTH } from "../../const.ts";
 import { Category } from "../../types/categorys.ts";
 import { RenderProjects } from "./RenderProjects/RenderProjects.tsx";
 
@@ -21,29 +22,27 @@ export const HomePage: React.FC = () => {
 
   const visibleProjects = projects
     .filter((project) => project.category === category)
-    .slice(1, 7);
+    .slice(0, 6);
 
-  const slideBanners = [
-    "https://i.im.ge/2024/08/24/f6xkdr.main-view.jpeg",
-    "https://i.im.ge/2024/08/24/f6xolq.main-view.jpeg",
-    "https://i.im.ge/2024/08/24/f63PF0.main-view.jpeg",
-    "https://i.im.ge/2024/08/24/f63ZWF.main-view.jpeg",
-    "https://i.im.ge/2024/08/24/f6xXip.main-view.jpeg",
-  ];
+  const tour3D = projects.filter(
+    (project) =>
+      project.title === "Kunisovska beauty salon" ||
+      project.title === "Yevropeiskyi kvartal"
+  );
+
+  const firstProjectsWith3Dtour = tour3D.concat(projects.slice(7, 9));
+
   const [slideIndex, setSlideIndex] = useState(0);
 
   const animationOpacity = () => {
     const slideImg = document.getElementById("slideImg");
 
     if (slideImg) {
-      slideImg.style.transition = "opacity 0.3s";
       slideImg.style.opacity = "0";
 
-      const setTimeoutId = setTimeout(() => {
+      setTimeout(() => {
         slideImg.style.opacity = "1";
-
-        clearTimeout(setTimeoutId);
-      }, 500);
+      }, 600);
     }
   };
 
@@ -67,23 +66,35 @@ export const HomePage: React.FC = () => {
     });
   };
 
+  const handleContactFormButton = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+    document.body.style.overflow = "hidden";
+
+    dispatch(setContactsForm(true));
+  };
+
   useEffect(() => {
     dispatch(initProjects());
 
     const intervalId = setInterval(() => {
-      setSlideIndex((prevIndex) => (prevIndex + 1) % slideBanners.length);
+      setSlideIndex((prevIndex) => (prevIndex + 1) % SLIDER__LENGTH);
       animationOpacity();
     }, 15000);
 
     return () => clearInterval(intervalId);
-  }, [slideBanners.length]);
+  }, []);
 
   return (
     <section className="HomePage">
       <div className="HomePage__top">
         <img
           id="slideImg"
-          style={{ backgroundImage: `url(${slideBanners[slideIndex]})` }}
+          style={{
+            backgroundImage: `url("banners/main-view${slideIndex}.jpg")`,
+          }}
           className="HomePage__top__img"
           alt=""
         />
@@ -96,7 +107,12 @@ export const HomePage: React.FC = () => {
             </p>
           </div>
 
-          <button className="HomePage__top__button">Conversation</button>
+          <button
+            onClick={() => handleContactFormButton()}
+            className="HomePage__top__button"
+          >
+            Conversation
+          </button>
         </div>
 
         <div className="slides__center">
@@ -235,7 +251,7 @@ export const HomePage: React.FC = () => {
           </div>
 
           <RenderProjects
-            visibleProjects={projects.slice(6, 12)}
+            visibleProjects={firstProjectsWith3Dtour}
             margin={true}
           />
 
@@ -245,7 +261,10 @@ export const HomePage: React.FC = () => {
           />
 
           <div className="HomePage__portfolio__button__center">
-            <button className="HomePage__portfolio__button">
+            <button
+              onClick={() => handleContactFormButton()}
+              className="HomePage__portfolio__button"
+            >
               conversation
             </button>
           </div>

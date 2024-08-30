@@ -7,11 +7,13 @@ import { getAllProject } from "../../api/project.ts";
 export interface projectsState {
   loaded: boolean;
   projects: Projects[];
+  contactsForm: boolean;
 }
 
 const initialState: projectsState = {
   loaded: false,
   projects: [],
+  contactsForm: false,
 };
 
 export const initProjects = createAsyncThunk("projects/FETCH", () =>
@@ -24,6 +26,9 @@ export const projectsSlice = createSlice({
   reducers: {
     setProjects: (state, actions) => {
       state.projects = actions.payload;
+    },
+    setContactsForm: (state, actions) => {
+      state.contactsForm = !state.contactsForm;
     },
   },
   extraReducers(builder) {
@@ -40,7 +45,7 @@ export const projectsSlice = createSlice({
   },
 });
 
-export const { setProjects } = projectsSlice.actions;
+export const { setProjects, setContactsForm } = projectsSlice.actions;
 
 export const selectProjects = (state: RootState) => state.projects;
 

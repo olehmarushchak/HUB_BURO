@@ -1,7 +1,7 @@
 $background-color: #fafafa;
 $black-color: #212529;
 $gray-color: gray;
-
+$red-color: red;
 
 $header-heigth: 80px;
 $width-top-section-about: 544px;
@@ -23,3 +23,18 @@ $width-memeber-photo: 220px;
 $most-margin-about-us: 100px;
 $width-top-img-about-us: 570px;
 $heigth-top-img-about-us: 265px;
+
+$input-heigth: 15%;
+$input-width: 100%;
+$textarea-heigth: 100%;
+
+@media (max-width: 600px) {
+
+  }
+  
+  @media (min-width: 601px) and (max-width: 1180px) {
+
+  }
+  
+  @media (min-width: 1025px) {
+  }
