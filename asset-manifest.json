@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.944144fa.css",
-    "main.js": "/static/js/main.8c8ec87b.js",
-    "static/media/4Mg9.gif": "/static/media/4Mg9.07176b6186ebdc55de94.gif",
-    "static/media/Лого-пнг-1.svg": "/static/media/Лого-пнг-1.716127a8ae7030fd2339.svg",
-    "index.html": "/index.html",
-    "static/media/ant-design_right-outlined-right.svg": "/static/media/ant-design_right-outlined-right.ceb309ccdcc4285074cc.svg",
-    "static/media/ant-design_left-outlined.svg": "/static/media/ant-design_left-outlined.ba8c5f9abae23c5248df.svg",
-    "main.944144fa.css.map": "/static/css/main.944144fa.css.map",
-    "main.8c8ec87b.js.map": "/static/js/main.8c8ec87b.js.map"
+    "main.css": "./static/css/main.3661e31a.css",
+    "main.js": "./static/js/main.d648fd4f.js",
+    "static/media/4Mg9.gif": "./static/media/4Mg9.07176b6186ebdc55de94.gif",
+    "static/media/Лого-пнг-1.svg": "./static/media/Лого-пнг-1.716127a8ae7030fd2339.svg",
+    "index.html": "./index.html",
+    "static/media/ant-design_right-outlined-right.svg": "./static/media/ant-design_right-outlined-right.ceb309ccdcc4285074cc.svg",
+    "static/media/ant-design_left-outlined.svg": "./static/media/ant-design_left-outlined.ba8c5f9abae23c5248df.svg",
+    "main.3661e31a.css.map": "./static/css/main.3661e31a.css.map",
+    "main.d648fd4f.js.map": "./static/js/main.d648fd4f.js.map"
   },
   "entrypoints": [
-    "static/css/main.944144fa.css",
-    "static/js/main.8c8ec87b.js"
+    "static/css/main.3661e31a.css",
+    "static/js/main.d648fd4f.js"
   ]
 }
