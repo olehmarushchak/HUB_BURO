@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/olehmarushchak/HUB_BURO/static/css/main.03b6e05a.css",
+    "main.js": "/olehmarushchak/HUB_BURO/static/js/main.8c8ec87b.js",
+    "static/media/4Mg9.gif": "/olehmarushchak/HUB_BURO/static/media/4Mg9.07176b6186ebdc55de94.gif",
+    "static/media/Лого-пнг-1.svg": "/olehmarushchak/HUB_BURO/static/media/Лого-пнг-1.716127a8ae7030fd2339.svg",
+    "index.html": "/olehmarushchak/HUB_BURO/index.html",
+    "static/media/ant-design_right-outlined-right.svg": "/olehmarushchak/HUB_BURO/static/media/ant-design_right-outlined-right.ceb309ccdcc4285074cc.svg",
+    "static/media/ant-design_left-outlined.svg": "/olehmarushchak/HUB_BURO/static/media/ant-design_left-outlined.ba8c5f9abae23c5248df.svg",
+    "main.03b6e05a.css.map": "/olehmarushchak/HUB_BURO/static/css/main.03b6e05a.css.map",
+    "main.8c8ec87b.js.map": "/olehmarushchak/HUB_BURO/static/js/main.8c8ec87b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.03b6e05a.css",
+    "static/js/main.8c8ec87b.js"
+  ]
+}
