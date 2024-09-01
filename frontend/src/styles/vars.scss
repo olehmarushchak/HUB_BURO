@@ -3,13 +3,25 @@ $black-color: #212529;
 $gray-color: gray;
 $red-color: red;
 
+$header-and-footer-padding-desktop: 80px;
+$header-and-footer-padding-phone: 40px;
 $header-heigth: 80px;
+
+$footer-height: 400px;
+
+
 $width-top-section-about: 544px;
+
 $width-page-desktop: 1120px;
+$width-page-table: 735px;
+$width-page-phone: 350px;
+
 $heigth-home-page-top: 800px;
+
 $margin-bottom-home-page-desktop: 80px;
 $margin-bottom-home-page-categorys-title-desktop: 80px;
 $margin-bottom-home-page-categorys-category-desktop: 60px;
+
 $width-project-img-desktop: 350px;
 $heigth-project-img-desktop: 250px;
 $margin-project-tale-desktop: 35px;
@@ -27,14 +39,3 @@ $heigth-top-img-about-us: 265px;
 $input-heigth: 15%;
 $input-width: 100%;
 $textarea-heigth: 100%;
-
-@media (max-width: 600px) {
-
-  }
-  
-  @media (min-width: 601px) and (max-width: 1180px) {
-
-  }
-  
-  @media (min-width: 1025px) {
-  }

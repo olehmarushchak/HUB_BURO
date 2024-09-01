@@ -83,6 +83,12 @@
   @include hover(background-color, rgba($color: $black-color, $alpha: 0.5));
 }
 
+@mixin center {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 @media (max-width: 600px) {
   @mixin h3 {
     color: $black-color;

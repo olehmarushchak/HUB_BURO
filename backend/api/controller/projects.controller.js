@@ -38,10 +38,19 @@ const getByProjectId = async (req, res) => {
   return res.send(await projectService.getById(id));
 };
 
+const removeProject = async (req, res) => {
+  const { id } = req.params;
+
+  await projectService.remove(id);
+
+  res.send(200);
+};
+
 const projectsController = {
   createProject,
   getAllProjects,
   getByProjectId,
+  removeProject,
 };
 
 module.exports = {

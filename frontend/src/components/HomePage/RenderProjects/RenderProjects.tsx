@@ -3,6 +3,7 @@ import { PreloadStyleForTale } from "../PeloadStyleForTale/PreloadStyleForTale.t
 import { Projects } from "../../../types/projects.type";
 import { Link } from "react-router-dom";
 import cn from "classnames";
+import { ProjectItem } from "./ProjectItem/ProjectItem.tsx";
 
 interface Props {
   visibleProjects: Projects[];
@@ -22,26 +23,9 @@ export const RenderProjects: React.FC<Props> = ({
     >
       {!visibleProjects.length &&
         [1, 2, 3, 4, 5].map((element) => <PreloadStyleForTale key={element} />)}
-      {visibleProjects.map((project) => (
-        <Link
-          key={project.id}
-          className="HomePage__categorys__projects-list__project"
-          to={"/:id"}
-        >
-          <li>
-            <div className="HomePage__categorys__projects-list__img__container">
-                <img
-                  className="HomePage__categorys__projects-list__img"
-                  src={project.mainimg}
-                  alt="img"
-                />
-            </div>
 
-            <h3 className="HomePage__categorys__projects-list__title">
-              {project.title}
-            </h3>
-          </li>
-        </Link>
+      {visibleProjects.map((project) => (
+        <ProjectItem project={project} />
       ))}
     </ul>
   );

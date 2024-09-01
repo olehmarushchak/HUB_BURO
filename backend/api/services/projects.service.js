@@ -12,10 +12,15 @@ const getById = async (id) => {
   return await Projects.findAll({ where: { id } });
 };
 
+const remove = async (id) => {
+  return await Projects.destroy({ where: { id } });
+};
+
 const projectService = {
   create,
   getALL,
   getById,
+  remove,
 };
 
 module.exports = {

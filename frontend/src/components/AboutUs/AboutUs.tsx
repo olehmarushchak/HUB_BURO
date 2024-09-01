@@ -1,6 +1,6 @@
 import React from "react";
 import "./AboutUs.scss";
-import { TEAM } from "../../const.ts";
+import { TEAM } from "../../utils/const.ts";
 import { MemberOfTeam } from "./MemberOfTeam/MemberOfTeam.tsx";
 import { useAppDispatch } from "../../custom-hooks/reduxHooks.ts";
 import { setContactsForm } from "../../redux/slices/projects.slice.ts";

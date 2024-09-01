@@ -1,5 +1,9 @@
 @import "../../../src/styles/utils.scss";
 
+.margin__zero {
+  margin: 0 !important;
+}
+
 .HomePage {
   position: relative;
   overflow: hidden;
@@ -205,6 +209,7 @@
           text-transform: uppercase;
           font-size: 24px;
           transition: opacity 0.3s;
+          margin: 0;
         }
 
         &:hover {
@@ -311,4 +316,35 @@
       background-color: $background-color;
     }
   }
+}
+
+@media (max-width: 750px) {
+  .HomePage__portfolio__button__center {
+    justify-content: center;
+  }
+
+  .HomePage__categorys__category__list :not(:last-child) {
+    margin-right: 16px;
+  }
+
+  .HomePage__categorys {
+    width: $width-page-phone;
+  }
+
+  .HomePage__portfolio {
+    width: $width-page-phone;
+  }
+}
+
+@media (min-width: 750px) and (max-width: 1180px) {
+  .HomePage__categorys {
+    width: $width-page-table;
+  }
+
+  .HomePage__portfolio {
+    width: $width-page-table;
+  }
+}
+
+@media (min-width: 1025px) {
 }

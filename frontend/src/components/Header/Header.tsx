@@ -11,7 +11,7 @@ export const Header: React.FC = () => {
     <header className="Header">
       <NavLink className="Header__logo" to={"/"}></NavLink>
 
-      <ul className="Header__list">
+      <ul className="Header__list phone-media">
         <li className="Header__list__item">
           <NavLink
             className={cn("Header__list__link", {
@@ -52,7 +52,7 @@ export const Header: React.FC = () => {
         </li>
       </ul>
 
-      <div className="Header__language">
+      <div className="Header__language phone-media">
         <NavLink
           className={cn("Header__language__link", {
             "Header__language__link--active": true,

@@ -1,5 +1,54 @@
 @import "../../../src/styles/utils.scss";
 
+.ThankYou {
+  width: 70%;
+  height: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__title {
+    @include h2;
+    font-size: clamp(8px, 2vw + 1rem, 32px);
+  }
+
+  &__img {
+    background: url(../../../public/icons/Лого-пнг-1.svg);
+    width: 100px;
+    height: 100px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    &__container {
+      margin: 16px 0;
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &__text {
+    @include text;
+  }
+
+  &__container {
+    display: block;
+  }
+
+  &__link {
+    width: fit-content;
+    position: relative;
+    color: $black-color;
+    text-decoration: none;
+    text-transform: uppercase;
+    @include text;
+
+    &:hover {
+      color: $gray-color;
+    }
+  }
+}
+
 .close {
   position: absolute;
   top: 0;
@@ -27,7 +76,7 @@
   align-items: center;
 
   width: 60%;
-  height: 90%;
+  padding: 24px 0;
   background-color: $background-color;
 }
 
@@ -52,6 +101,7 @@
     margin-bottom: 5vh;
 
     &__button {
+      cursor: pointer;
       width: 12px;
       height: 12px;
       border-radius: 50%;
@@ -111,12 +161,18 @@
     }
 
     &__label {
+      cursor: pointer;
       @include h3;
       text-align: left;
       font-size: clamp(8px, 2vw + 1rem, 16px);
 
       display: flex;
       flex-direction: column;
+
+      &__error {
+        font-size: 10px;
+        color: $red-color;
+      }
     }
 
     &__input {
@@ -124,6 +180,12 @@
       width: $input-width;
       height: 5vh;
       padding: 1vh;
+
+      &:focus {
+        outline: 0;
+        border: 2px solid $black-color;
+        background-color: rgba($color: $gray-color, $alpha: 0.1);
+      }
 
       &--error {
         border: 1px solid $red-color;
@@ -134,8 +196,18 @@
       resize: none;
       margin-top: 6px;
       width: $input-width;
-      height: 12vh;
+      height: 15vh;
       padding: 1vh;
+
+      &--error {
+        border: 1px solid $red-color;
+      }
+
+      &:focus {
+        outline: 0;
+        border: 2px solid $black-color;
+        background-color: rgba($color: $gray-color, $alpha: 0.1);
+      }
     }
 
     &__button {

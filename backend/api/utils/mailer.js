@@ -17,7 +17,9 @@ function send(email, subject, html) {
   });
 }
 
-function sendInfo(email, name) {
+function sendInfo(newClients) {
+  const { name, email } = newClients;
+
   const html = `
     <h1>${name}, Заявку принято!</h1>
     <p>Незабаром з вами звяжеться наш менеджер, очікуйте дзвінка</p>
@@ -29,6 +31,7 @@ function sendInfo(email, name) {
 
 function sendInfoForCompany(newClients) {
   const { id, name, phone, email, comments } = newClients;
+
   const html = `
     <h1>${name} зробив заявку!</h1>
     <p>Номер телефону: ${phone}</p>

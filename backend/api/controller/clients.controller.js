@@ -1,4 +1,5 @@
 const { clientsServices } = require("../services/clients.service");
+const { projectService } = require("../services/projects.service");
 const { mailer } = require("../utils/mailer");
 
 const createClients = async (req, res) => {
@@ -9,11 +10,14 @@ const createClients = async (req, res) => {
   }
 
   const newClients = await clientsServices.create(name, email, phone, comments);
+  console.log(newClients);
 
-  mailer.sendInfoForCompany(newClients);
+  mailer.sendInfo(newClients).catch((error) => console.log(error));
 
   return res.send(newClients);
 };
+
+
 
 const clientsController = {
   createClients,

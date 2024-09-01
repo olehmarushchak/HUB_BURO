@@ -1,6 +1,8 @@
 export const MARGIN__PROJECT__IMG = 35;
 export const SIZE__PROJECT__IMG = 350 + MARGIN__PROJECT__IMG;
 export const SLIDER__LENGTH = 5;
+export const DEBOUNCE__ANIMATION__MS = 600;
+export const DEBOUNCE__SLIDE__MS = 15000;
 
 export const TEAM = [
   {

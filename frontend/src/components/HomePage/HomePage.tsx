@@ -11,9 +11,10 @@ import {
   selectProjects,
   setContactsForm,
 } from "../../redux/slices/projects.slice.ts";
-import { SIZE__PROJECT__IMG, SLIDER__LENGTH } from "../../const.ts";
+import { DEBOUNCE__ANIMATION__MS, DEBOUNCE__SLIDE__MS, SIZE__PROJECT__IMG, SLIDER__LENGTH } from "../../utils/const.ts";
 import { Category } from "../../types/categorys.ts";
 import { RenderProjects } from "./RenderProjects/RenderProjects.tsx";
+import { CategoryList } from "./CategoryList/CategoryList.tsx";
 
 export const HomePage: React.FC = () => {
   const { projects } = useAppSelector(selectProjects);
@@ -22,7 +23,8 @@ export const HomePage: React.FC = () => {
 
   const visibleProjects = projects
     .filter((project) => project.category === category)
-    .slice(0, 6);
+    .slice(0, 6)
+    .reverse();
 
   const tour3D = projects.filter(
     (project) =>
@@ -48,7 +50,11 @@ export const HomePage: React.FC = () => {
 
   const handleSlideClick = (index) => {
     animationOpacity();
-    setSlideIndex(index);
+
+    const timeoutId = setTimeout(() => {
+      setSlideIndex(index);
+      clearTimeout(timeoutId);
+    }, DEBOUNCE__ANIMATION__MS);
   };
 
   const handleScrollArrowRightClick = () => {
@@ -80,9 +86,13 @@ export const HomePage: React.FC = () => {
     dispatch(initProjects());
 
     const intervalId = setInterval(() => {
-      setSlideIndex((prevIndex) => (prevIndex + 1) % SLIDER__LENGTH);
       animationOpacity();
-    }, 15000);
+
+      const timeoutId = setTimeout(() => {
+        setSlideIndex((prevIndex) => (prevIndex + 1) % SLIDER__LENGTH);
+        clearTimeout(timeoutId);
+      }, DEBOUNCE__ANIMATION__MS);
+    }, DEBOUNCE__SLIDE__MS);
 
     return () => clearInterval(intervalId);
   }, []);
@@ -177,43 +187,7 @@ export const HomePage: React.FC = () => {
           </div>
 
           <div className="HomePage__categorys__category">
-            <ul className="HomePage__categorys__category__list">
-              <li className="HomePage__categorys__category__list__item">
-                <span
-                  onClick={() => setCategory(Category.EXTERIOR)}
-                  className={cn("HomePage__categorys__category__list__link", {
-                    "HomePage__categorys__category__list__link--active":
-                      category === Category.EXTERIOR,
-                  })}
-                >
-                  exterior
-                </span>
-              </li>
-
-              <li className="HomePage__categorys__category__list__item">
-                <span
-                  onClick={() => setCategory(Category.INTERIOR)}
-                  className={cn("HomePage__categorys__category__list__link", {
-                    "HomePage__categorys__category__list__link--active":
-                      category === Category.INTERIOR,
-                  })}
-                >
-                  interior
-                </span>
-              </li>
-
-              <li className="HomePage__categorys__category__list__item">
-                <span
-                  onClick={() => setCategory(Category.LANDSCAPE)}
-                  className={cn("HomePage__categorys__category__list__link", {
-                    "HomePage__categorys__category__list__link--active":
-                      category === Category.LANDSCAPE,
-                  })}
-                >
-                  landscape
-                </span>
-              </li>
-            </ul>
+            <CategoryList setCategory={setCategory} category={category} />
           </div>
 
           <button
