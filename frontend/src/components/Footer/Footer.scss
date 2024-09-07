@@ -89,6 +89,16 @@
       }
     }
   }
+
+  &__log-in {
+    &__link {
+      position: relative;
+      text-decoration: none;
+      text-transform: uppercase;
+      color: $black-color;
+      @include hoverLinks;
+    }
+  }
 }
 
 @media (max-width: 600px) {

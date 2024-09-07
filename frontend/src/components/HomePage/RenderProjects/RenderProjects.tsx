@@ -25,7 +25,7 @@ export const RenderProjects: React.FC<Props> = ({
         [1, 2, 3, 4, 5].map((element) => <PreloadStyleForTale key={element} />)}
 
       {visibleProjects.map((project) => (
-        <ProjectItem project={project} />
+        <ProjectItem project={project} key={project.id} />
       ))}
     </ul>
   );

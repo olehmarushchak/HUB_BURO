@@ -107,11 +107,42 @@
 
     &__top {
       margin: 0;
+      width: $width-page-phone;
+
+      &__img {
+        width: $width-page-phone;
+      }
     }
+  }
+
+  .AboutUs__bottom__team > * {
+    display: block;
+  }
+
+  .AboutUs__bottom__team__member__info {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    width: fit-content;
+    margin: 16px 0 0 0;
+  }
+
+  .AboutUs__bottom__team__member__info__name {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    width: fit-content;
+  }
+
+  .AboutUs__bottom__team__member__info__role {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    width: fit-content;
   }
 }
 
-@media (min-width: 601px) and (max-width: 1180px) {
+@media (min-width: 600px) and (max-width: 1180px) {
   .AboutUs {
     display: block;
     width: fit-content;

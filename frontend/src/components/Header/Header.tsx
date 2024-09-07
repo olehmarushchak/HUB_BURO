@@ -3,9 +3,31 @@ import { NavLink, useLocation } from "react-router-dom";
 import "./Header.scss";
 import cn from "classnames";
 import { Pathname } from "../../types/pathname.ts";
+import {
+  useAppDispatch,
+  useAppSelector,
+} from "../../custom-hooks/reduxHooks.ts";
+import {
+  selectProjects,
+  setLanguage,
+  setSelectLanguage,
+} from "../../redux/slices/projects.slice.ts";
+import { LANGUAGE } from "../../utils/language.ts";
 
 export const Header: React.FC = () => {
   const { pathname } = useLocation();
+  const dispatch = useAppDispatch();
+  const { selectLanguage, language } = useAppSelector(selectProjects);
+
+  const handleUA = () => {
+    dispatch(setLanguage(LANGUAGE.ua));
+    dispatch(setSelectLanguage(false));
+  };
+
+  const handleEU = () => {
+    dispatch(setLanguage(LANGUAGE.eu));
+    dispatch(setSelectLanguage(true));
+  };
 
   return (
     <header className="Header">
@@ -21,7 +43,7 @@ export const Header: React.FC = () => {
             })}
             to={"portfolio"}
           >
-            Portfolio
+            {selectLanguage.headerPortfolio}
           </NavLink>
         </li>
 
@@ -34,7 +56,7 @@ export const Header: React.FC = () => {
             })}
             to={"about-us"}
           >
-            About Us
+            {selectLanguage.headerAboutUs}
           </NavLink>
         </li>
 
@@ -47,29 +69,29 @@ export const Header: React.FC = () => {
             })}
             to={"contacts"}
           >
-            contacts
+            {selectLanguage.headerContacts}
           </NavLink>
         </li>
       </ul>
 
       <div className="Header__language phone-media">
-        <NavLink
+        <button
+          onClick={() => handleUA()}
           className={cn("Header__language__link", {
-            "Header__language__link--active": true,
+            "Header__language__link--active": !language,
           })}
-          to={"ua"}
         >
-          UA
-        </NavLink>
+          {selectLanguage.UA}
+        </button>
 
-        <NavLink
+        <button
+          onClick={() => handleEU()}
           className={cn("Header__language__link", {
-            "Header__language__link--active": false,
+            "Header__language__link--active": language,
           })}
-          to={"en"}
         >
-          EN
-        </NavLink>
+          {selectLanguage.EU}
+        </button>
       </div>
     </header>
   );

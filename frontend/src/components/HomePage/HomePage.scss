@@ -36,6 +36,7 @@
     }
 
     &__img {
+      min-width: 800px;
       height: 100%;
       width: 100%;
       background-repeat: no-repeat;
@@ -127,6 +128,7 @@
           justify-content: left;
           align-items: center;
           width: 100px;
+          width: fit-content;
         }
 
         &__link {
@@ -323,8 +325,12 @@
     justify-content: center;
   }
 
+  .HomePage__categorys__category__list {
+    display: block;
+  }
+
   .HomePage__categorys__category__list :not(:last-child) {
-    margin-right: 16px;
+    margin-bottom: 16px;
   }
 
   .HomePage__categorys {
@@ -333,6 +339,14 @@
 
   .HomePage__portfolio {
     width: $width-page-phone;
+  }
+
+  .HomePage__top__bottom {
+    display: block;
+  }
+
+  .HomePage__top__button {
+    margin-top: 46px;
   }
 }
 

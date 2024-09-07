@@ -1,0 +1,9 @@
+@import "../../styles/utils.scss";
+
+.LoginPage {
+  &__center {
+    @include center;
+    height: 100vh;
+    align-items: center;
+  }
+}

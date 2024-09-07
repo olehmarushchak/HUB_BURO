@@ -1,7 +1,16 @@
 const { projectService } = require("../services/projects.service");
 
 const createProject = async (req, res) => {
-  const { title, category, mainimg, description, images } = req.body;
+  const {
+    title,
+    category,
+    mainimg,
+    description,
+    images,
+    tour,
+    location,
+    descriptionENG,
+  } = req.body;
 
   if (
     !title ||
@@ -9,6 +18,8 @@ const createProject = async (req, res) => {
     !mainimg ||
     !description ||
     !images ||
+    !location ||
+    !descriptionENG ||
     typeof images !== "object"
   ) {
     return res.sendStatus(421);
@@ -19,7 +30,10 @@ const createProject = async (req, res) => {
     category,
     mainimg,
     description,
-    images
+    images,
+    location,
+    tour,
+    descriptionENG
   );
 
   res.statusCode = 201;
@@ -46,11 +60,20 @@ const removeProject = async (req, res) => {
   res.send(200);
 };
 
+const updateProject = async (req, res) => {
+  const { id } = req.params;
+
+  const updatedProject = await projectService.update(id, req.body);
+
+  res.send(updatedProject);
+};
+
 const projectsController = {
   createProject,
   getAllProjects,
   getByProjectId,
   removeProject,
+  updateProject,
 };
 
 module.exports = {

@@ -30,6 +30,22 @@ const Projects = sequelize.define(
       allowNull: false,
       defaultValue: [],
     },
+    tour: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    tour: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    descriptionENG: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    location: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
   },
   {
     tableName: "projects",

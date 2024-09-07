@@ -3,4 +3,5 @@ export enum Category {
   "EXTERIOR" = "architecture",
   "LANDSCAPE" = "landscape",
   "ALL" = "all",
+  "3D" = "3d",
 }

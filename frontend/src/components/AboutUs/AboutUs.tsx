@@ -2,11 +2,18 @@ import React from "react";
 import "./AboutUs.scss";
 import { TEAM } from "../../utils/const.ts";
 import { MemberOfTeam } from "./MemberOfTeam/MemberOfTeam.tsx";
-import { useAppDispatch } from "../../custom-hooks/reduxHooks.ts";
-import { setContactsForm } from "../../redux/slices/projects.slice.ts";
+import {
+  useAppDispatch,
+  useAppSelector,
+} from "../../custom-hooks/reduxHooks.ts";
+import {
+  selectProjects,
+  setContactsForm,
+} from "../../redux/slices/projects.slice.ts";
 
 export const AboutUs: React.FC = () => {
   const dispatch = useAppDispatch();
+  const { selectLanguage } = useAppSelector(selectProjects);
 
   const handleContactFormButton = () => {
     window.scrollTo({
@@ -23,46 +30,33 @@ export const AboutUs: React.FC = () => {
       <section className="AboutUs">
         <div className="AboutUs__top">
           <section className="AboutUs__top__section">
-            <h2 className="AboutUs__title">Who we are</h2>
+            <h2 className="AboutUs__title">{selectLanguage.whoWeAre}</h2>
 
-            <p className="AboutUs__top__text">
-              HAB buro is an architecture and interior design studio founded in
-              2022 in Chernivtsi, Ukraine. It is a space where ideas and
-              solutions come together.
-              <br />
-              <br />
-              Our team works on residential, commercial, and corporate projects
-              in Ukraine and Europe.
-              <br />
-              <br />
-              We believe that beauty and craftsmanship is an individuality that
-              is made up of details. Details transform drawings and images into
-              a tangible embodiment that should inspire and deliver function.
-            </p>
+            <p className="AboutUs__top__text">{selectLanguage.whoWeAreText}</p>
           </section>
 
           <section className="AboutUs__top__section">
-            <h2 className="AboutUs__title">what we do</h2>
+            <h2 className="AboutUs__title">{selectLanguage.whatWeDo}</h2>
 
             <ul className="AboutUs__top__section__list">
               <li className="AboutUs__top__section__list__item">
-                Passive house, active house, nZEB design
+                {selectLanguage.whatWeDo1}
               </li>
 
               <li className="AboutUs__top__section__list__item">
-                Architectural design
+                {selectLanguage.whatWeDo2}
               </li>
 
               <li className="AboutUs__top__section__list__item">
-                Interior design
+                {selectLanguage.whatWeDo3}
               </li>
 
               <li className="AboutUs__top__section__list__item">
-                Reconstruction, restoration and renovation
+                {selectLanguage.whatWeDo4}
               </li>
 
               <li className="AboutUs__top__section__list__item">
-                Supervision, support and project management
+                {selectLanguage.whatWeDo5}
               </li>
             </ul>
           </section>
@@ -72,14 +66,10 @@ export const AboutUs: React.FC = () => {
           </section>
 
           <section className="AboutUs__top__section">
-            <h2 className="AboutUs__title">join the hab buro team</h2>
+            <h2 className="AboutUs__title">{selectLanguage.joinOurBuro}</h2>
 
             <p className="AboutUs__top__text">
-              We are always looking for enthusiastic ambitious people. Dynamic
-              award-winning team for your growth. Let’s shape the future of
-              design together! We are a open to new opportunities and happy to
-              welcome new talents to our team. Fill out the form, and our team
-              member will reach out to you shortly!
+              {selectLanguage.joinOurBuroText}
             </p>
           </section>
 
@@ -88,13 +78,13 @@ export const AboutUs: React.FC = () => {
               onClick={() => handleContactFormButton()}
               className="AboutUs__top__button"
             >
-              conversation
+             {selectLanguage.buttonConversion}
             </button>
           </div>
         </div>
 
         <div className="AboutUs__bottom">
-          <h2 className="AboutUs__title">The team</h2>
+          <h2 className="AboutUs__title">{selectLanguage.team}</h2>
 
           <ul className="AboutUs__bottom__team">
             {TEAM.map((member) => (

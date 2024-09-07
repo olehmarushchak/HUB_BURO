@@ -2,8 +2,10 @@ import React, { useEffect, useRef, useState } from "react";
 import "./ContactsForm.scss";
 import {
   useAppDispatch,
+  useAppSelector,
 } from "../../custom-hooks/reduxHooks.ts";
 import {
+  selectProjects,
   setContactsForm,
 } from "../../redux/slices/projects.slice.ts";
 import cn from "classnames";
@@ -14,6 +16,7 @@ import { createNewReqruit } from "../../api/reqruit.ts";
 
 export const ContactsForm: React.FC = () => {
   const dispatch = useAppDispatch();
+  const { selectLanguage } = useAppSelector(selectProjects);
   const [joinTeam, setJoinTeam] = useState(false);
   const [doneRequest, setDoneRequest] = useState(false);
 
@@ -107,19 +110,19 @@ export const ContactsForm: React.FC = () => {
         !comments
       ) {
         if (!name) {
-          setNameError("please enter the name");
+          setNameError(`${selectLanguage.nameError}`);
         }
         if (!phone || !patternOfNumber.test(phone)) {
-          setPhoneError("please enter the phone format ");
+          setPhoneError(`${selectLanguage.phoneError}`);
         }
         if (!email || !email.includes("@")) {
-          setEmailError("please enter the email");
+          setEmailError(`${selectLanguage.emailError}`);
         }
         if (!cvlink || !urlPattern.test(cvlink)) {
-          setCvlinkError("please enter the correct URL");
+          setCvlinkError(`${selectLanguage.cvlinkError}`);
         }
         if (!comments) {
-          setCommentError("please enter the comment");
+          setCommentError(`${selectLanguage.commentError}`);
         }
 
         console.log("error");
@@ -146,13 +149,13 @@ export const ContactsForm: React.FC = () => {
 
     if (!name || !phone || !email || !email.includes("@")) {
       if (!name) {
-        setNameError("please enter the name");
+        setNameError(`${selectLanguage.nameError}`);
       }
       if (!phone || !patternOfNumber.test(phone)) {
-        setPhoneError("please enter the phone format ");
+        setPhoneError(`${selectLanguage.phoneError}`);
       }
       if (!email || !email.includes("@")) {
-        setEmailError("please enter the email");
+        setEmailError(`${selectLanguage.emailError}`);
       }
 
       console.log("error");
@@ -175,13 +178,13 @@ export const ContactsForm: React.FC = () => {
   };
 
   const handleClickCloseContact = () => {
-    console.log('close')
+    console.log("close");
     document.body.style.overflow = "auto";
     dispatch(setContactsForm(false));
 
     setDoneRequest(false);
   };
-  
+
   return (
     <section
       onClick={(event) => handleClickCloseContact()}
@@ -215,11 +218,12 @@ export const ContactsForm: React.FC = () => {
           </div>
         ) : (
           <div className="ContactsForm">
-            <h2 className="ContactsForm__title">LET’S TALK?</h2>
+            <h2 className="ContactsForm__title">{selectLanguage.letsTalk}</h2>
 
             <div className="ContactsForm__switcher">
               <button
                 onClick={() => handleSwitchButtonConversation()}
+                data-content={selectLanguage.buttonConversion}
                 className={cn(
                   "ContactsForm__switcher__button ContactsForm__switcher__button--left",
                   { "ContactsForm__switcher__button--active": !joinTeam }
@@ -228,6 +232,7 @@ export const ContactsForm: React.FC = () => {
 
               <button
                 onClick={() => handleSwitchButtonJoinTeam()}
+                data-content={selectLanguage.joinTeam}
                 className={cn(
                   "ContactsForm__switcher__button ContactsForm__switcher__button--right",
                   { "ContactsForm__switcher__button--active": joinTeam }
@@ -238,7 +243,7 @@ export const ContactsForm: React.FC = () => {
             <form ref={form} className="ContactsForm__form" action="POST">
               <div className="ContactsForm__form__section">
                 <label className="ContactsForm__form__label" htmlFor="name">
-                  FIRST NAME & LAST NAME*
+                  {selectLanguage.nameLabel}
                   {nameError && (
                     <p className="ContactsForm__form__label__error">
                       {nameError}
@@ -254,13 +259,13 @@ export const ContactsForm: React.FC = () => {
                     maxLength={40}
                     type="text"
                     id="name"
-                    placeholder="enter username"
+                    placeholder={selectLanguage.namePlaceholder}
                     required
                   />
                 </label>
 
                 <label className="ContactsForm__form__label" htmlFor="email">
-                  e-mail
+                  {selectLanguage.emailLabel}
                   {emailError && (
                     <p className="ContactsForm__form__label__error">
                       {emailError}
@@ -275,14 +280,14 @@ export const ContactsForm: React.FC = () => {
                     maxLength={100}
                     type="email"
                     id="email"
-                    placeholder="enter your e-mail"
+                    placeholder={selectLanguage.emailPlaceholder}
                     required
                   />
                 </label>
 
                 {joinTeam && (
                   <label className="ContactsForm__form__label" htmlFor="link">
-                    link cv
+                    {selectLanguage.linkLabel}
                     {cvlinkError && (
                       <p className="ContactsForm__form__label__error">
                         {cvlinkError}
@@ -299,7 +304,7 @@ export const ContactsForm: React.FC = () => {
                       maxLength={500}
                       type="text"
                       id="link"
-                      placeholder="enter your e-mail"
+                      placeholder={selectLanguage.linkPlaceholder}
                       required
                     />
                   </label>
@@ -308,7 +313,7 @@ export const ContactsForm: React.FC = () => {
 
               <div className="ContactsForm__form__section">
                 <label className="ContactsForm__form__label" htmlFor="phone">
-                  phone
+                  {selectLanguage.phoneLabel}
                   {phoneError && (
                     <p className="ContactsForm__form__label__error">
                       {phoneError}
@@ -323,13 +328,13 @@ export const ContactsForm: React.FC = () => {
                     maxLength={20}
                     type="text"
                     id="phone"
-                    placeholder="enter your phone, format: +38"
+                    placeholder={selectLanguage.phonePlaceholder}
                     required
                   />
                 </label>
 
                 <label className="ContactsForm__form__label" htmlFor="comments">
-                  COMMENTS
+                  {selectLanguage.commentLabel}
                   {commentError && (
                     <p className="ContactsForm__form__label__error">
                       {commentError}
@@ -345,7 +350,7 @@ export const ContactsForm: React.FC = () => {
                     minLength={10}
                     maxLength={600}
                     id="comments"
-                    placeholder="enter your comment (optional)"
+                    placeholder={selectLanguage.commentPlaceholder}
                   ></textarea>
                 </label>
               </div>
@@ -358,7 +363,7 @@ export const ContactsForm: React.FC = () => {
               className="ContactsForm__form__button"
               type="submit"
             >
-              SEND REQUEST
+              {selectLanguage.sendRequest}
             </button>
           </div>
         )}

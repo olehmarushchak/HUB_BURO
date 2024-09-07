@@ -11,13 +11,18 @@ import {
   selectProjects,
   setContactsForm,
 } from "../../redux/slices/projects.slice.ts";
-import { DEBOUNCE__ANIMATION__MS, DEBOUNCE__SLIDE__MS, SIZE__PROJECT__IMG, SLIDER__LENGTH } from "../../utils/const.ts";
+import {
+  DEBOUNCE__ANIMATION__MS,
+  DEBOUNCE__SLIDE__MS,
+  SIZE__PROJECT__IMG,
+  SLIDER__LENGTH,
+} from "../../utils/const.ts";
 import { Category } from "../../types/categorys.ts";
 import { RenderProjects } from "./RenderProjects/RenderProjects.tsx";
 import { CategoryList } from "./CategoryList/CategoryList.tsx";
 
 export const HomePage: React.FC = () => {
-  const { projects } = useAppSelector(selectProjects);
+  const { projects, selectLanguage } = useAppSelector(selectProjects);
   const dispatch = useAppDispatch();
   const [category, setCategory] = useState(Category.EXTERIOR);
 
@@ -83,8 +88,6 @@ export const HomePage: React.FC = () => {
   };
 
   useEffect(() => {
-    dispatch(initProjects());
-
     const intervalId = setInterval(() => {
       animationOpacity();
 
@@ -111,9 +114,11 @@ export const HomePage: React.FC = () => {
 
         <div className="HomePage__top__bottom">
           <div className="HomePage__top__text">
-            <h1 className="HomePage__top__title">HUB buro</h1>
+            <h1 className="HomePage__top__title">
+              {selectLanguage.HomePageTitle}
+            </h1>
             <p className="HomePage__top__sub-title">
-              explore the new collection.
+              {selectLanguage.SubHomePage}
             </p>
           </div>
 
@@ -121,7 +126,7 @@ export const HomePage: React.FC = () => {
             onClick={() => handleContactFormButton()}
             className="HomePage__top__button"
           >
-            Conversation
+            {selectLanguage.buttonConversion}
           </button>
         </div>
 
@@ -162,6 +167,7 @@ export const HomePage: React.FC = () => {
                 onClick={() => handleSlideClick(3)}
               ></button>
             </ul>
+
             <ul className="slides__item">
               <button
                 className={cn("slides__button", {
@@ -178,11 +184,11 @@ export const HomePage: React.FC = () => {
         <div className="HomePage__categorys">
           <div className="HomePage__categorys__title">
             <h2 className="HomePage__categorys__title__h2">
-              Selected Projects
+              {selectLanguage.SelectedProjects}
             </h2>
 
-            <Link className="HomePage__categorys__title__view-all" to={"/"}>
-              view all
+            <Link className="HomePage__categorys__title__view-all" to={"/portfolio"}>
+              {selectLanguage.viewAll}
             </Link>
           </div>
 
@@ -207,9 +213,7 @@ export const HomePage: React.FC = () => {
       <div className="HomePage__about-us__center">
         <div className="HomePage__about-us">
           <p className="HomePage__about-us__text">
-            Our team works on residential, commercial, and corporate projects in
-            Ukraine and Europe. We believe that beauty and craftsmanship is an
-            individuality that is made up of details.
+            {selectLanguage.mainHomePage}
           </p>
         </div>
       </div>
@@ -217,10 +221,12 @@ export const HomePage: React.FC = () => {
       <div className="HomePage__portfolio__center">
         <div className="HomePage__portfolio">
           <div className="HomePage__categorys__title">
-            <h2 className="HomePage__categorys__title__h2">Portfolio</h2>
+            <h2 className="HomePage__categorys__title__h2">
+              {selectLanguage.headerPortfolio}
+            </h2>
 
             <Link className="HomePage__categorys__title__view-all" to={"/"}>
-              view all
+              {selectLanguage.viewAll}
             </Link>
           </div>
 
@@ -239,7 +245,7 @@ export const HomePage: React.FC = () => {
               onClick={() => handleContactFormButton()}
               className="HomePage__portfolio__button"
             >
-              conversation
+             {selectLanguage.buttonConversion}
             </button>
           </div>
         </div>

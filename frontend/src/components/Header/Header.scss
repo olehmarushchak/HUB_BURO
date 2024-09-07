@@ -3,8 +3,10 @@
 .Header {
   display: flex;
   width: 100%;
+  height: $header-heigth;
   justify-content: space-between;
-  padding: 30px $header-and-footer-padding-desktop;
+  align-items: center;
+  padding: 0 $header-and-footer-padding-desktop;
   position: fixed;
   top: 0;
   background-color: $background-color;
@@ -12,10 +14,10 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 
   &__logo {
-    width: 45px;
-    height: 25px;
-    background-image: url(../../../public/icons/лого-2-вар-1.png);
-    background-size: contain;
+    width: 80px;
+    height: 60px;
+    background-image: url(../../../public/icons/HAB.svg);
+    background-size: cover;
     background-repeat: no-repeat;
 
     @include hover(transform, scale(1.2));
@@ -54,8 +56,12 @@
     }
 
     &__link {
+      cursor: pointer;
       text-decoration: none;
       color: $gray-color;
+      outline: 0;
+      border: 0;
+      background-color: $background-color;
 
       &--active {
         color: $black-color;

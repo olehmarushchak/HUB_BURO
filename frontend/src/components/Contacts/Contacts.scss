@@ -12,6 +12,7 @@
 
   &__sections {
     display: flex;
+
     & :not(:last-child) {
       margin-right: $most-margin-about-us;
     }
@@ -60,4 +61,41 @@
       }
     }
   }
+}
+
+@media (max-width: 700px) {
+  .Contacts {
+    &__sections {
+      display: block;
+
+      & > * {
+        margin-bottom: $most-margin-about-us;
+        margin-right: 0;
+
+        & > * {
+          margin-bottom: 16px;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 700px) and (max-width: 1180px) {
+  .Contacts {
+    &__sections {
+      display: block;
+
+      & > * {
+        margin-bottom: $most-margin-about-us;
+        margin-right: 0;
+
+        & > * {
+          margin-bottom: 16px;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1025px) {
 }

@@ -8,21 +8,32 @@ import { ProjectItem } from "../HomePage/RenderProjects/ProjectItem/ProjectItem.
 import { PreloadStyleForTale } from "../HomePage/PeloadStyleForTale/PreloadStyleForTale.tsx";
 
 export const Portfolio: React.FC = () => {
-  const { projects } = useAppSelector(selectProjects);
+  const { projects, selectLanguage } = useAppSelector(selectProjects);
 
-  const [category, setCategory] = useState(Category.EXTERIOR);
+  const [category, setCategory] = useState(Category.ALL);
 
-  const visibleProjects = projects.filter(
-    (project) => project.category === category
-  );
+  const with3Dtour = projects.filter((project) => project.tour);
+
+  const visibleCategory =
+    Category.ALL === category
+      ? projects
+      : projects.filter((project) => project.category === category);
+
+  const visibleProjects =
+    category === Category["3D"] ? with3Dtour : visibleCategory;
 
   return (
     <div className="Portfolio__center">
       <section className="Portfolio">
-        <h2 className="Portfolio__title">Portfolio</h2>
+        <h2 className="Portfolio__title">{selectLanguage.headerPortfolio}</h2>
 
         <div className="Portfolio__categorys">
-          <CategoryList setCategory={setCategory} category={category} />
+          <CategoryList
+            setCategory={setCategory}
+            category={category}
+            all={true}
+            tour={true}
+          />
         </div>
 
         <div className="Portfolio__projects">
@@ -32,7 +43,7 @@ export const Portfolio: React.FC = () => {
             ))}
 
           {visibleProjects.map((project) => (
-            <ProjectItem project={project} marginZero={true} />
+            <ProjectItem key={project.id} project={project} marginZero={true} />
           ))}
         </div>
       </section>

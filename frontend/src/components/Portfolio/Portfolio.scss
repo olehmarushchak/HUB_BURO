@@ -24,3 +24,25 @@
     margin-bottom: $most-margin-about-us;
   }
 }
+
+@media (max-width: 750px) {
+  .Portfolio {
+    &__projects {
+      grid-template-columns: repeat(1, $width-project-img-desktop);
+    }
+  }
+}
+
+@media (min-width: 750px) and (max-width: 1180px) {
+  .Portfolio {
+    &__projects {
+      grid-template-columns: repeat(2, $width-project-img-desktop);
+    }
+  }
+}
+
+@media (min-width: 1025px) {
+  .Portfolio {
+
+  }
+}

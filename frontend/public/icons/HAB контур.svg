@@ -4,6 +4,7 @@
 	 viewBox="0 0 1440 1080" style="enable-background:new 0 0 1440 1080;" xml:space="preserve">
 <style type="text/css">
 	.st0{display:none;}
+	.st1{fill:#FFFFFF;}
 </style>
 <g id="Шар_1" class="st0">
 	
@@ -1672,5 +1673,20 @@ OwjA+3czjgAAAABJRU5ErkJggg==" transform="matrix(0.472 0 0 0.472 -287 -467)">
 	<rect x="1179" y="315" width="27" height="153"/>
 	<rect x="540" y="576" width="162" height="225"/>
 	<rect x="729" y="576" width="162" height="225"/>
+	<rect x="306" y="333" class="st1" width="126" height="450"/>
+	<rect x="117" y="333" class="st1" width="126" height="450"/>
+	<rect x="216" y="495" class="st1" width="126" height="126"/>
+	<rect x="558" y="333" class="st1" width="126" height="198"/>
+	<rect x="558" y="594" class="st1" width="126" height="189"/>
+	<rect x="747" y="333" class="st1" width="126" height="198"/>
+	<rect x="747" y="594" class="st1" width="126" height="189"/>
+	<rect x="648" y="333" class="st1" width="126" height="117"/>
+	<rect x="999" y="333" class="st1" width="162" height="198"/>
+	<rect x="999" y="594" class="st1" width="162" height="189"/>
+	<path class="st1" d="M1298.08,534h-74.79V333h74.79c28.67,0,51.92,23.25,51.92,51.92v97.16C1350,510.75,1326.75,534,1298.08,534z"
+		/>
+	<path class="st1" d="M1298.52,781.5H1224V594h74.52c28.43,0,51.48,23.05,51.48,51.48v84.53
+		C1350,758.45,1326.95,781.5,1298.52,781.5z"/>
+	<rect x="1125" y="333" class="st1" width="162" height="117"/>
 </g>
 </svg>

@@ -113,7 +113,7 @@
         &::after {
           @include h3;
           font-size: clamp(8px, 2vw + 1rem, 12px);
-          content: "CONVERSATION";
+          content: attr(data-content);
           display: flex;
           align-items: center;
           padding-left: 16px;
@@ -126,7 +126,7 @@
           width: 200px;
           @include h3;
           font-size: clamp(8px, 2vw + 1rem, 12px);
-          content: "JOIN THE TEAM";
+          content: attr(data-content);
           display: flex;
           align-items: center;
           padding-left: 16px;
