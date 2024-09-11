@@ -10,7 +10,6 @@ const createClients = async (req, res) => {
   }
 
   const newClients = await clientsServices.create(name, email, phone, comments);
-  console.log(newClients);
 
   mailer.sendInfo(newClients).catch((error) => console.log(error));
 

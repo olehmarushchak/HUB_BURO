@@ -36,7 +36,7 @@ async function createProject(file, category) {
 
     const imgUrl = [];
 
-    for (const img of projectImages.slice(0, 5)) {
+    for (const img of projectImages) {
       const url = await fetchAPIurl(img);
 
       imgUrl.push(url);

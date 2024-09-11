@@ -7,6 +7,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import { Footer } from "./components/Footer/Footer.tsx";
 import { ContactsForm } from "./components/ContactsForm/ContactsForm.tsx";
 
+
 const App: React.FC = () => {
   const { contactsForm } = useAppSelector(selectProjects);
   const dispatch = useAppDispatch();

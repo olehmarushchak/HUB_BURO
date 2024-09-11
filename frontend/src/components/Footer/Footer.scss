@@ -91,6 +91,16 @@
   }
 
   &__log-in {
+    margin-top: 16px;
+    position: relative;
+    width: fit-content;
+
+    &__center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
     &__link {
       position: relative;
       text-decoration: none;

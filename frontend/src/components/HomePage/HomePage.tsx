@@ -7,7 +7,6 @@ import {
   useAppSelector,
 } from "../../custom-hooks/reduxHooks.ts";
 import {
-  initProjects,
   selectProjects,
   setContactsForm,
 } from "../../redux/slices/projects.slice.ts";
@@ -225,7 +224,7 @@ export const HomePage: React.FC = () => {
               {selectLanguage.headerPortfolio}
             </h2>
 
-            <Link className="HomePage__categorys__title__view-all" to={"/"}>
+            <Link className="HomePage__categorys__title__view-all" to={"/portfolio"}>
               {selectLanguage.viewAll}
             </Link>
           </div>
@@ -236,7 +235,7 @@ export const HomePage: React.FC = () => {
           />
 
           <RenderProjects
-            visibleProjects={projects.slice(12, 18)}
+            visibleProjects={projects.slice(13, 18)}
             margin={true}
           />
 

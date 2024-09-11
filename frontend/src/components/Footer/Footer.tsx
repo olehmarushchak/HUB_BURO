@@ -49,10 +49,12 @@ export const Footer: React.FC = () => {
         </ul>
       </div>
 
-      <div className="Footer__log-in">
-        <Link className="Footer__log-in__link" to={"/admin"}>
-          log in
-        </Link>
+      <div className="Footer__log-in__center">
+        <div className="Footer__log-in">
+          <Link className="Footer__log-in__link" to={"/admin"}>
+            log in
+          </Link>
+        </div>
       </div>
     </footer>
   );

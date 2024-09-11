@@ -1,16 +1,14 @@
 import React, { useState } from "react";
 import "./LoginPage.scss";
 import cn from "classnames";
-import {
-  useAppDispatch,
-  useAppSelector,
-} from "../../custom-hooks/reduxHooks.ts";
+import { useAppDispatch } from "../../custom-hooks/reduxHooks.ts";
 import { Navigate } from "react-router-dom";
-import { selectAuth, setLoginAuth } from "../../redux/slices/auth.slice.ts";
+import { setLoginAuth } from "../../redux/slices/auth.slice.ts";
 
 export const LoginPage: React.FC = () => {
-  const dispatch = useAppDispatch();
+  console.log(process.env);
 
+  const dispatch = useAppDispatch();
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
 
@@ -35,7 +33,10 @@ export const LoginPage: React.FC = () => {
       return;
     }
 
-    if (login === "login" && password === "1234") {
+    if (
+      login === process.env.REACT_APP_LOGIN &&
+      password === process.env.REACT_APP_PASSWORD
+    ) {
       dispatch(setLoginAuth(true));
       setRedirectToAdmin(true);
     } else {
@@ -54,7 +55,7 @@ export const LoginPage: React.FC = () => {
   return (
     <div className="LoginPage__center">
       <div className="LoginPage">
-        <form action="" method="POST">
+        <form>
           <label className="ContactsForm__form__label" htmlFor="login">
             Login
             {loginError && (
@@ -100,7 +101,6 @@ export const LoginPage: React.FC = () => {
           <button
             onClick={() => handleSubmitForm(login, password)}
             className="ContactsForm__form__button"
-            type="submit"
           >
             log in
           </button>

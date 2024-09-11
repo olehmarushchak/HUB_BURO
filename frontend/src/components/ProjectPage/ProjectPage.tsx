@@ -1,20 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import {
   useAppDispatch,
   useAppSelector,
 } from "../../custom-hooks/reduxHooks.ts";
 import {
-  initProjects,
   selectProjects,
   setContactsForm,
   setSelectProjects,
 } from "../../redux/slices/projects.slice.ts";
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import "./ProjectPage.scss";
 import { ProjectItem } from "./ProjectItem/ProjectItem.tsx";
 import { RenderProjects } from "../HomePage/RenderProjects/RenderProjects.tsx";
 import { SIZE__PROJECT__IMG } from "../../utils/const.ts";
-import { Projects } from "../../types/projects.type.ts";
 
 export const ProjectPage: React.FC = () => {
   const { language, selectLanguage, projects, selectedProject } =
@@ -67,7 +65,7 @@ export const ProjectPage: React.FC = () => {
         project.id !== selectedProject.id
     );
 
-    const visibleText = language
+    const visibleText = !language
       ? selectedProject.description
       : selectedProject.descriptionENG;
 

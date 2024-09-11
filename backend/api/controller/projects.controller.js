@@ -62,6 +62,7 @@ const removeProject = async (req, res) => {
 
 const updateProject = async (req, res) => {
   const { id } = req.params;
+  console.log(req.body);
 
   const updatedProject = await projectService.update(id, req.body);
 

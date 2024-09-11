@@ -1,7 +1,6 @@
 import React from "react";
 import { PreloadStyleForTale } from "../PeloadStyleForTale/PreloadStyleForTale.tsx";
 import { Projects } from "../../../types/projects.type";
-import { Link } from "react-router-dom";
 import cn from "classnames";
 import { ProjectItem } from "./ProjectItem/ProjectItem.tsx";
 

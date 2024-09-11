@@ -3,6 +3,7 @@ const { sequelize } = require("../utils/db");
 const { Clients } = require("./clients.model");
 // const { Projects } = require("./projects.model");
 const { Recruits } = require("./recruits.model");
+const { Projects } = require("./projects.model");
 
 // const addColumn = async () => {
 //   await sequelize.getQueryInterface().addColumn("projects", "descriptionENG", {
@@ -24,7 +25,7 @@ const { Recruits } = require("./recruits.model");
 const initTables = async () => {
   await Clients.sync({ force: true });
   await Recruits.sync({ force: true });
-
+  // await Projects.sync({force: true});
   // addColumn()
   //   .then(() => {
   //     console.log("Column added successfully.");

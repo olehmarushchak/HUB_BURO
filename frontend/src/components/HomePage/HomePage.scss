@@ -197,7 +197,7 @@
         position: relative;
 
         &::after {
-          content: "view";
+          content: "";
           opacity: 0;
           display: flex;
           width: 100%;
@@ -216,6 +216,8 @@
 
         &:hover {
           &::after {
+            // content: url("../../../public/icons/eye.png");
+            
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             opacity: 1;
           }

@@ -1,7 +1,7 @@
 export const LANGUAGE = {
   ua: {
     HomePageTitle: "HUB б'юро ",
-    SubHomePage: " находим досконалі рішення для ваших задач",
+    SubHomePage: "знаходим досконалі рішення для ваших задач",
     SelectedProjects: "Обрані проєкти",
     buttonConversion: "контактувати",
     headerPortfolio: "Проєкти",

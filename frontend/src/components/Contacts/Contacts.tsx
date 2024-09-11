@@ -41,15 +41,7 @@ export const Contacts: React.FC = () => {
                   className="Contacts__section__list__link"
                   href="callto:+3809351932"
                 >
-                  +380 93 51 932
-                </a>
-              </li>
-              <li className="Contacts__section__list__item">
-                <a
-                  className="Contacts__section__list__link"
-                  href="callto:+3809351932"
-                >
-                  +380 93 51 932
+                  +380 50 74 48 470
                 </a>
               </li>
             </ul>

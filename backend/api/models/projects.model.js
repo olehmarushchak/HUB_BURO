@@ -34,12 +34,8 @@ const Projects = sequelize.define(
       type: DataTypes.STRING,
       allowNull: true,
     },
-    tour: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
     descriptionENG: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: true,
     },
     location: {

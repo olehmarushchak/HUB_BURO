@@ -2,7 +2,7 @@
 .idea
 .vscode
 .env
-./backend/web-public
+backend/public/
 
 # Node
 node_modules

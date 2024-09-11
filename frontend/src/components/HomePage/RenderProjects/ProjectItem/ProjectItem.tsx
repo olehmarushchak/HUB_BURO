@@ -2,14 +2,6 @@ import React from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
 import { Projects } from "../../../../types/projects.type.ts";
 import cn from "classnames";
-import {
-  useAppDispatch,
-  useAppSelector,
-} from "../../../../custom-hooks/reduxHooks.ts";
-import {
-  selectProjects,
-  setSelectProjects,
-} from "../../../../redux/slices/projects.slice.ts";
 
 interface Props {
   project: Projects;
@@ -20,7 +12,6 @@ export const ProjectItem: React.FC<Props> = ({
   project,
   marginZero = false,
 }) => {
-  const { selectedProject } = useAppSelector(selectProjects);
   const { pathname } = useLocation();
   const { productId } = useParams();
 
